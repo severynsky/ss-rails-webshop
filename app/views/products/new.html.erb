@@ -1,0 +1,12 @@
+<h1>Create product</h1>
+<%= form_for :product, url: products_path, html: {class: 'add-product-form'} do |p| %>
+    <p><%= p.label :name %>: <%= p.text_field :name %></p>
+    <p><%= p.label :category %>: <%= p.text_field :category %></p>
+    <p><%= p.label :manufacture %>: <%= p.text_field :manufacture %></p>
+    <p><%= p.label :color %>: <%= p.text_field :color %></p>
+    <p><%= p.label :price %>: <%= p.text_field :price %></p>
+    <p><%= p.label :sku %>: <%= p.text_field :sku %></p>
+    <p><%= p.label :description %>: <%= p.text_area :description %></p>
+    <%= p.submit %>
+<% end %>
+
