@@ -1,0 +1,8 @@
+<h3>This is <span><%= @product.name %> page</span></h3>
+
+<%= image_tag @product.image, class: "product-image #{@product.id}" %>
+<p><%= @product.category %></p>
+<p><%= @product.color %></p>
+<p><%= @product.manufacture %></p>
+
+<%= link_to "edit", edit_product_path %>

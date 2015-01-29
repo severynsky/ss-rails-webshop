@@ -1,3 +1,56 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  font-family: sans-serif;
+}
+.clear{
+  clear: both;
+}
+nav{
+  border-bottom: 1px solid orange;
+  background-color: orange;
+  margin: 0;
+}
+nav ul {
+  list-style-type: none;
+
+  li {
+    float: left;
+    padding: 9px 9px 7px 9px ;
+    border: 1px solid orange;
+    border-radius: 5px;
+    margin: 8px 1px;
+    background-color: #FFF;
+  }
+  a:hover{
+    color: orange;
+  }
+  a{
+    text-decoration: none;
+    color: #666666;
+    transition: all 0.1s ease-in-out ;
+  }
+}
+ul.products-list{
+  list-style-type: none;
+  border: 1px solid #999999;
+  border-radius: 5px;
+  padding: 10px;
+  width: 300px;
+  transition: all 0.1s ease-in-out ;
+
+  .list-image img{
+    width: 250px;
+    height: auto;
+  }
+}
+.product-image{
+  width: 400px;
+  height: auto;
+}
+ul.products-list:hover{
+   box-shadow: 1px 1px 6px rgba(50,50,50,0.4);
+  border: 1px solid orange;
+ }

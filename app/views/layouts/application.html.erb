@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <nav>
+      <ul>
+        <li><%= link_to "new product", new_product_path %></li>
+        <li><%= link_to "all products", products_path %></li>
+      </ul>
+      <div class="clear"></div>
+    </nav>
 
 <%= yield %>
 
