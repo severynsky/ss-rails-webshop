@@ -3,7 +3,7 @@
     <ul class="products-list">
       <h3><%= link_to p.name, product_path(p) %></h3>
       <li class="list-image"><%= image_tag p.image%></li>
-      <li>Manufacture by: <span><%= p.manufacture %></span></li>
+      <li>Manufacture by: <span><%= p.manufacture.title %></span></li>
       <li>Category: <span><%= p.category.title %></span></li>
       <li class="color">Color: <span><%= p.color %></span></li>
       <li class="price">Cost: <span><%= p.price %></span></li>

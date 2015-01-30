@@ -12,9 +12,8 @@
 
     <p><%= p.label :name %>: <%= p.text_field :name %></p>
     <span>Select category: </span>
-
-    <%= p.collection_select(:category_id, @categories, :id, :title) %>
-    <p><%= p.label :manufacture %>: <%= p.text_field :manufacture %></p>
+    <%= p.collection_select(:category_id, @categories, :id, :title) %></br></br>
+    <span>Select manufacturer: </span><%= p.collection_select(:manufacture_id, @manufactures, :id, :title) %>
     <p><%= p.label :image %>: <%= p.text_field :image %></p>
     <p><%= p.label :color %>: <%= p.text_field :color %></p>
     <p><%= p.label :price %>: <%= p.text_field :price %></p>

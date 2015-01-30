@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @categories = Category.all
+    @manufactures = Manufacture.all
   end
 
   def create
@@ -17,6 +18,7 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     @categories = Category.all
+    @manufactures = Manufacture.all
   end
 
   def update
@@ -36,12 +38,13 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @categories = Category.all
+    @manufactures = Manufacture.all
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name,:category_id, :image, :manufacture, :color, :price, :sku, :description, :id)
+    params.require(:product).permit(:name,:category_id, :image, :manufacture_id, :color, :price, :sku, :description, :id)
   end
 
 end

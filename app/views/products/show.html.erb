@@ -3,6 +3,6 @@
 <%= image_tag @product.image, class: "product-image #{@product.id}" %>
 <p class="<%= @product.category.title%>"><%= @product.category.title %></p>
 <p><%= @product.color %></p>
-<p><%= @product.manufacture %></p>
+<p><%= @product.manufacture.title %></p>
 
 <%= link_to "edit", edit_product_path %>
