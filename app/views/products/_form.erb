@@ -19,4 +19,9 @@
     <p><%= p.label :sku %>: <%= p.text_field :sku %></p>
     <p><%= p.label :description %>: <%= p.text_area :description %></p>
     <%= p.submit %>
+
+    <% @categories.each do |cat|%>
+        <p><%= cat.title %></p>
+        <!--select_tag "people", options_from_collection_for_select(@people, "id", "name")-->
+    <% end %>
 <% end %>
