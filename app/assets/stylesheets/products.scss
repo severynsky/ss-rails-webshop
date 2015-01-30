@@ -39,7 +39,9 @@ ul.products-list{
   border-radius: 5px;
   padding: 10px;
   width: 300px;
-  transition: all 0.1s ease-in-out ;
+  transition: all 0.1s ease-in-out;
+  float: left;
+  margin: 10px;
 
   .list-image img{
     width: 250px;

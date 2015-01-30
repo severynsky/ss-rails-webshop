@@ -16,12 +16,14 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @categories = Category.all
   end
 
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to "/"
+      # render plain: params[:product]
     else
       render 'edit'
     end
@@ -33,12 +35,13 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @categories = Category.all
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name,:category, :image, :manufacture, :color, :price, :sku, :description, :id)
+    params.require(:product).permit(:name,:category_id, :image, :manufacture, :color, :price, :sku, :description, :id)
   end
 
 end

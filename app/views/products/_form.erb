@@ -11,7 +11,9 @@
     <% end %>
 
     <p><%= p.label :name %>: <%= p.text_field :name %></p>
-    <p><%= p.label :category %>: <%= p.text_field :category %></p>
+    <span>Select category: </span>
+
+    <%= p.collection_select(:category_id, @categories, :id, :title) %>
     <p><%= p.label :manufacture %>: <%= p.text_field :manufacture %></p>
     <p><%= p.label :image %>: <%= p.text_field :image %></p>
     <p><%= p.label :color %>: <%= p.text_field :color %></p>
@@ -20,8 +22,4 @@
     <p><%= p.label :description %>: <%= p.text_area :description %></p>
     <%= p.submit %>
 
-    <% @categories.each do |cat|%>
-        <p><%= cat.title %></p>
-        <!--select_tag "people", options_from_collection_for_select(@people, "id", "name")-->
-    <% end %>
 <% end %>

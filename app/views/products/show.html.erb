@@ -1,7 +1,7 @@
 <h3>This is <span><%= @product.name %> page</span></h3>
 
 <%= image_tag @product.image, class: "product-image #{@product.id}" %>
-<p><%= @product.category %></p>
+<p class="<%= @product.category.title%>"><%= @product.category.title %></p>
 <p><%= @product.color %></p>
 <p><%= @product.manufacture %></p>
 
