@@ -28,6 +28,8 @@ class ManufacturesController < ApplicationController
 
   def show
     @manufacture = Manufacture.find(params[:id])
+    @prods_from_manuf = Product.where(manufacture_id: @manufacture)
+    # render plain: @prods_from_manuf
   end
 
   def index

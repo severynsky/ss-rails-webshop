@@ -1,3 +1,30 @@
 // Place all the styles related to the manufactures controller here.
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.manufacture-container {
+  width: 800px;
+  margin: 0 auto;
+  .manufacture-description {
+    text-indent: 2em;
+    padding-left: 1em;
+    margin-left: 2em;
+    border-right: 4px solid orange;
+  }
+}
+.prod-by-manufacture-item{
+  border: 1px solid #CCCCCC;
+  width: 500px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 10px;
+  float: left;
+  img{
+    width: 480px;
+  }
+  .price{
+    color: red;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: underline;
+  }
+}

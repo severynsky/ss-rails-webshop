@@ -1,5 +1,8 @@
-<% @manufactures.each do |man| %>
+<div class="manufacture-container">
+    <% @manufactures.each do |man| %>
 
-<p><%= man.title %></p>
+    <h3><%= man.title %></h3>
+    <p class="manufacture-description"><%= man.description %></p>
 
-<% end %>
+    <% end %>
+</div>
