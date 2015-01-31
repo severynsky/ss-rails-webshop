@@ -28,6 +28,9 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @prods_from_cat = Product.where(category_id:  @category)
+    Product.find_by_category_id(params[:id])
+    # render plain: @prods_from_cat
   end
 
   def index
