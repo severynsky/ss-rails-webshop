@@ -7,6 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+
     <nav>
       <ul>
         <li><%= link_to "all products", products_path %></li>
@@ -17,6 +19,13 @@
       <div class="clear"></div>
     </nav>
     <div class="container">
+          <% flash.each do |name, msg| -%>
+            <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+              <%= content_tag :span, msg, class: name %>
+            </div>
+          <% end -%>
         <%= yield %>
     </div>
 
