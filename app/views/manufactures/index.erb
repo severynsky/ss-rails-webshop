@@ -3,6 +3,6 @@
 
     <h3><%= man.title %></h3>
     <p class="manufacture-description"><%= man.description %></p>
-
+    <%= link_to "see #{man.title} products", manufacture_path(man) %>
     <% end %>
 </div>

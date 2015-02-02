@@ -1,4 +1,5 @@
 class ManufacturesController < ApplicationController
+  before_action :find_manufactures, only: [:show, :edit, :update, :destroy]
 
   def new
     @manufacture = Manufacture.new
@@ -14,11 +15,9 @@ class ManufacturesController < ApplicationController
   end
 
   def edit
-    @manufacture = Manufacture.find(params[:id])
   end
 
   def update
-    @manufacture = Manufacture.find(params[:id])
     if @manufacture.update(manufacture_params)
       redirect_to "/"
     else
@@ -27,7 +26,6 @@ class ManufacturesController < ApplicationController
   end
 
   def show
-    @manufacture = Manufacture.find(params[:id])
     @prods_from_manuf = Product.where(manufacture_id: @manufacture)
     # render plain: @prods_from_manuf
   end
@@ -40,6 +38,10 @@ class ManufacturesController < ApplicationController
 
   def manufacture_params
     params.require(:manufacture).permit(:title)
+  end
+
+  def find_manufactures
+    @manufacture = Manufacture.find(params[:id])
   end
 
 end

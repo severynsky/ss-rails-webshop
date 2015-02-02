@@ -7,20 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
-    <nav>
-      <ul>
-        <li><%= link_to "all products", products_path %></li>
-        <li><%= link_to "categories", categories_path %></li>
-        <li><%= link_to "manufactures", manufactures_path %></li>
-        <li><%= link_to "new product", new_product_path %></li>
-      </ul>
-      <div class="clear"></div>
-    </nav>
+    <%= render "products/nav" %>
     <div class="container">
           <% flash.each do |name, msg| -%>
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-info" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span>
               <%= content_tag :span, msg, class: name %>
