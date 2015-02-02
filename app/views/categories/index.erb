@@ -1,4 +1,7 @@
 <% @categories.each do |cat| %>
-    <p> <%= cat.title %></p>
-
+    <div class="item">
+      <p></p>
+        <p> This is <strong><%= cat.title %></strong> section</p>
+        <%= link_to "show #{cat.title} products", category_path(cat) %>
+    </div>
 <% end %>
