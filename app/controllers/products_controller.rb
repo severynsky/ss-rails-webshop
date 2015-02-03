@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+
+  include Devise::Controllers::Helpers
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
@@ -45,6 +47,7 @@ class ProductsController < ApplicationController
     @products = Product.all
     @categories = Category.all
     @manufactures = Manufacture.all
+    @user = current_user
   end
 
   private
