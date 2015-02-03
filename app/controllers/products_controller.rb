@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   def new
     if user_signed_in?
       @product = Product.new
