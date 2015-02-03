@@ -6,7 +6,7 @@
     <br />
     <div class="field">
       <%= f.label :username %><br />
-      <%= f.text_field :username%>
+      <%= f.text_field :username %>
     </div>
 
   <div class="field">
@@ -35,6 +35,12 @@
     <div class="field">
       <%= f.label :role %>
       <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+    </div>
+
+    <br />
+    <div class="field">
+      <%= f.label :address %><br/>
+      <%= f.text_field :address %>
     </div>
 
     <br />
