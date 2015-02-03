@@ -1,13 +1,15 @@
 <h2>This is page with users list</h2>
 
 <% @users.each do |user|%>
-    <% if user.role?%>
-    <p><span class="role"><%= user.email %></span> has <span class="role red"><%= user.role %></span> role</p>
-    <% else %>
-        <p><span class="role"><%= user.email %></span> has <span class="red">no</span> role</p>
-        <% end %>
+    <h3><%= user.username %></h3>
+    <p><span class="role"><%= user.email %></span> has <span class="role red"><%= user.role %></span> role, and leave on <span><%= user.address %></span></p>
+
+
+    <p></p>
 <% end %>
-<p class="role" >asa <% if current_user.role %>
+
+
+<p class="role" >online is: <% if current_user.role %>
         <span class="red"><%= current_user.role %></span>
       <% else %>
         <span class="red"><%=  current_user.email  %></span>
