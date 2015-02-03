@@ -2,15 +2,16 @@
 
 <% @users.each do |user|%>
     <h3><%= user.username %></h3>
-    <p><span class="role"><%= user.email %></span> has <span class="role red"><%= user.role %></span> role, and leave on <span><%= user.address %></span></p>
+    <p><span class="role"><%= user.email %></span> is <span class="role red"><%= user.role %></span> role, and leave on <span><%= user.address %></span></p>
 
 
     <p></p>
 <% end %>
 
 
-<p class="role" >online is: <% if current_user.role %>
-        <span class="red"><%= current_user.role %></span>
-      <% else %>
-        <span class="red"><%=  current_user.email  %></span>
-        <% end %></p>
+<h2 >online is:</h2>
+<p><% if current_user.role %>
+      <span class="red"><%= current_user.role %></span>
+  <% else %>
+      <span class="red"><%=  current_user.email  %></span>
+  <% end %></p>
