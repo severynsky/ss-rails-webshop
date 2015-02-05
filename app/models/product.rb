@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-
+  has_many :product_records
   belongs_to :category
   belongs_to :manufacture
 

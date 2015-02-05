@@ -1,3 +1,5 @@
+
+<h2>Product catalog</h2>
 <% @products.each do |p| %>
     <ul class="products-list">
       <h3><%= link_to p.name, product_path(p) %></h3>
@@ -8,9 +10,9 @@
       <li class="price">Cost: <span><%= number_to_currency(p.price) %></span></li>
       <li class="sku">SKU: <span><%= p.sku %></span></li>
       <li class="description">Description: <span><%= p.description %></span></li>
-      <% if user_signed_in? %>
-      <button> buy</button>
-          <%end%>
+
+          <%= button_to "add to cart", product_records_path(product_id: p) %>
+
     </ul>
 
 <% end %>
