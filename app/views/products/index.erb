@@ -9,7 +9,7 @@
       <li class="sku">SKU: <span><%= p.sku %></span></li>
       <li class="description">Description: <span><%= p.description %></span></li>
       <% if user_signed_in? %>
-      <button> buy</button>
+          <%= button_to "Add to cart", line_items_path(product_id: p) %>
           <%end%>
     </ul>
 
