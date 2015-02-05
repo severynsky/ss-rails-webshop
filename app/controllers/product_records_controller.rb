@@ -10,15 +10,12 @@ class ProductRecordsController < ApplicationController
     @product_record = @cart.product_records.build(product: product)
 
     if @product_record.save
-      flash[:notice] = 'Item was added to cart'
+      flash[:notice] = 'Item was added to carts'
       redirect_to '/'
     end
   end
 
-  def index
-    @product_record = ProductRecord.all
-    # respond_with(@product_record)
-  end
+
 
 
   def show

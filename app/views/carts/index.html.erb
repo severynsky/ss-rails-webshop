@@ -1,6 +1,6 @@
 
-    <% @product_record.each do |pr| %>
+    <% @carts.each do |pr| %>
         <h3><%= pr.product.name %></h3>
         <p> product id is - # <%= pr.product_id %> and is in
-        <%= link_to "cart #{pr.cart_id}", product_record_path(pr) %></p>
+        <%= link_to "carts #{pr.cart_id}", product_record_path(pr) %></p>
     <% end %>
