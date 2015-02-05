@@ -6,7 +6,7 @@
       <li>Manufacture by: <span><%= p.manufacture.title %></span></li>
       <li>Category: <span><%= p.category.title %></span></li>
       <li class="color">Color: <span><%= p.color %></span></li>
-      <li class="price">Cost: <span><%= p.price %></span></li>
+      <li class="price">Cost: <span><%= number_to_currency(p.price) %></span></li>
       <li class="sku">SKU: <span><%= p.sku %></span></li>
       <li class="description">Description: <span><%= p.description %></span></li>
     </ul>
