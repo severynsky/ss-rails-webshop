@@ -1,0 +1,17 @@
+<h2>This is page with users list</h2>
+
+<% @users.each do |user|%>
+    <h3><%= user.username %></h3>
+    <p><span class="role"><%= user.email %></span> is <span class="role red"><%= user.role %></span> role, and leave on <span><%= user.address %></span></p>
+
+
+    <p></p>
+<% end %>
+
+
+<h2 >online is:</h2>
+<p><% if current_user.role %>
+      <span class="red"><%= current_user.role %></span>
+  <% else %>
+      <span class="red"><%=  current_user.email  %></span>
+  <% end %></p>

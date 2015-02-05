@@ -1,0 +1,7 @@
+<h1>Hello world!</h1>
+
+<p><%= @category.title %></p>
+<% @prods_from_cat.each do |prod|%>
+<p><%= prod.name %></p>
+    <%= image_tag prod.image %>
+<% end %>
