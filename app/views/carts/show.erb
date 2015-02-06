@@ -1,1 +1,9 @@
-<h3><%= @cart %></h3>
+<div class="cart">
+  <% @cart.product_records.each do |item| %>
+      <div class="cart-item">
+          <p><%= item.product.name %></p>
+          <%= image_tag item.product.image, class: 'img' %>
+          <p class="red"><%= item.product.price %></p>
+            </div>
+    <% end %>
+      </div>

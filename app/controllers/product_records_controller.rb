@@ -13,10 +13,9 @@ class ProductRecordsController < ApplicationController
       flash[:notice] = 'Item was added to carts'
       redirect_to '/'
     end
+    # binding.pry
+    session.delete(:counter)
   end
-
-
-
 
   def show
     # binding.pry

@@ -6,6 +6,9 @@
     <li><%= link_to "new product", new_product_path %></li>
         <li><%= link_to "see all users", users_path %></li>
         <li><%= link_to "see carts", carts_path %></li>
+    <% if $counter > 5 %>
+        <li><%= $counter %></li>
+        <% end %>
     </ul>
   <div class="login">
       <% if signed_in? %>
