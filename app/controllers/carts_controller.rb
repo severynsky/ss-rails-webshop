@@ -2,7 +2,6 @@ class CartsController < ApplicationController
 
   before_action :find_cart, only: [:show, :edit, :update, :destroy]
   def show
-    # binding.pry
     # render plain: params
   end
 

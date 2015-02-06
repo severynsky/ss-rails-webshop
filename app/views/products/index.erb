@@ -11,7 +11,8 @@
       <li class="sku">SKU: <span><%= p.sku %></span></li>
       <li class="description">Description: <span><%= p.description %></span></li>
 
-          <%= button_to "add to carts", product_records_path(product_id: p) %>
+      <p><%= select_tag "credit_card", options_for_select([1,2,3,4,5,6,], "1") %>
+      <%= button_to "add to carts", product_records_path(product_id: p) %></p>
 
     </ul>
 

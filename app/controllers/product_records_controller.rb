@@ -7,12 +7,18 @@ class ProductRecordsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @product_record = @cart.product_records.build(product: product)
-
+    @cart = Cart.last
     if @product_record.save
       flash[:notice] = 'Item was added to carts'
       redirect_to '/'
     end
-    # binding.pry
+    if @cart.product_records.find_by(product_id: params[:product_id]) == params(product_id)
+    binding.pry
+
+
+
+
+    end
     session.delete(:counter)
   end
 
