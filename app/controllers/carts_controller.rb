@@ -11,6 +11,10 @@ class CartsController < ApplicationController
     # respond_with(@product_record)
   end
 
+  def destroy
+    # render plain: params
+  end
+
   private
 
   def find_cart

@@ -6,7 +6,6 @@ class ProductRecordsController < ApplicationController
 
   def create
     product = Product.find(params[:product_id])
-    # render plain: product
     @product_record = @cart.product_records.build(product: product)
 
     if @product_record.save
@@ -21,6 +20,11 @@ class ProductRecordsController < ApplicationController
     # binding.pry
     # @product_record
     @record = ProductRecord.find(params[:id])
+  end
+
+  def destroy
+    @product_record.destroy
+    redirect_to 'cart'
   end
 
   private
