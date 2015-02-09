@@ -10,14 +10,13 @@ class ProductRecordsController < ApplicationController
     @cart = Cart.last
     if @product_record.save
       flash[:notice] = 'Item was added to carts'
-      redirect_to '/'
+      redirect_to @cart
     end
-    if @cart.product_records.find_by(product_id: params[:product_id]) == params(product_id)
     binding.pry
-
-
-
-
+    if @cart.product_records.find_by(product_id: (params[:product_id])).product.id == params[:product_id].to_i
+      $print = "yes"
+    else
+      $print = "no1"
     end
     session.delete(:counter)
   end
