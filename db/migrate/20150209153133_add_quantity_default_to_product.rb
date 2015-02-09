@@ -3,4 +3,3 @@ class AddQuantityDefaultToProduct < ActiveRecord::Migration
     change_column :product_records, :quantity, :integer, :default => 0
   end
 end
-ß

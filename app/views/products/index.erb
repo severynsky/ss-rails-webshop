@@ -1,7 +1,7 @@
 
 <h2>Product catalog</h2>
 <% @products.each do |p| %>
-    <ul class="products-list">
+    <ul class="products-list" id="product-item-<%= p.id %>">
       <h3><%= link_to p.name, product_path(p) %></h3>
       <li class="list-image"><%= image_tag p.image%></li>
       <li>Manufacture by: <%= link_to p.manufacture.title, manufacture_path(p.manufacture) %></span></li>
@@ -11,8 +11,7 @@
       <li class="sku">SKU: <span><%= p.sku %></span></li>
       <li class="description">Description: <span><%= p.description %></span></li>
 
-      <p><%= select_tag "credit_card", options_for_select([1,2,3,4,5,6,], "1") %>
-      <%= button_to "add to carts", product_records_path(product_id: p) %></p>
+      <%= button_to "add to carts", product_records_path(product_id: p),remote: true %></p>
 
     </ul>
 

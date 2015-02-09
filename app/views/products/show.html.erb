@@ -7,3 +7,6 @@
 <% if can? :update, @product%>
     <%= link_to "edit", edit_product_path %>
 <% end %>
+<% if can? :delete, @product%>
+    <%= link_to "delete", product_path, method: :delete, data: {confirm: 'are you sure?'} %>
+<% end %>
