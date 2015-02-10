@@ -24,7 +24,7 @@ class ProductRecordsController < ApplicationController
       format.html {redirect_to @cart}
       format.js
     end
-    
+
     session.delete(:counter)
   end
 

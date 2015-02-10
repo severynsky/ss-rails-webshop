@@ -45,8 +45,17 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    Product.find(params[:id]).delete
-    redirect_to '/'
+  # binding.pry
+    ProductRecord.all.each do |prod_rec|
+      if prod_rec.product_id == params[:id]
+        @alarm = "product exists in cart"
+        break
+      else
+        Product.find(params[:id]).delete
+        redirect_to '/'
+      end
+      @alarm = nil
+    end
   end
 
   def index
