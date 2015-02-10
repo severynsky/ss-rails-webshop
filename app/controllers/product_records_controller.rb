@@ -7,10 +7,6 @@ class ProductRecordsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @product_record = @cart.product_records.find_by(product_id: (params[:product_id]))
-    # @product_record = @cart.product_records.build(product: product)
-    # binding.pry
-
-    @cart.product_records.find_by(product_id: (params[:product_id]))
 
     if @product_record
       @product_record.quantity += 1

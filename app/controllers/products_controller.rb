@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    # binding.pry
     @categories = Category.all
     @manufactures = Manufacture.all
   end
@@ -46,16 +47,8 @@ class ProductsController < ApplicationController
 
   def destroy
   # binding.pry
-    ProductRecord.all.each do |prod_rec|
-      if prod_rec.product_id == params[:id]
-        @alarm = "product exists in cart"
-        break
-      else
-        Product.find(params[:id]).delete
-        redirect_to '/'
-      end
-      @alarm = nil
-    end
+    Product.find(params[:id]).destroy
+    redirect_to '/'
   end
 
   def index
