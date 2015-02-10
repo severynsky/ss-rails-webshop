@@ -1,0 +1,7 @@
+
+    <% @product_records.each do |pr| %>
+        <h3><%= pr.product.name %></h3>
+        <p> product id is - # <%= pr.product_id %> and is in
+        <%= link_to "carts #{pr.cart_id}", cart_path(pr.cart_id) %></p>
+    <% end %>
+    <%= current_user.username %>

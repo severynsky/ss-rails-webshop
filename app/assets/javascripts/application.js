@@ -11,7 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+    $('#cart-item-1').click(function () {
+        console.log('hello from application.js')
+    })
+});
+
