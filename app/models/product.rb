@@ -9,7 +9,6 @@ class Product < ActiveRecord::Base
 
   protected
   def check_product_exist_in_product_record
-    # binding.pry
     product_records.empty?
   end
 

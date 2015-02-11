@@ -25,12 +25,10 @@ class ProductRecordsController < ApplicationController
   end
 
   def show
-    # @product_record
     @record = ProductRecord.find(params[:id])
   end
 
   def destroy
-    # binding.pry
     @product_record.destroy
     respond_to do |format|
       format.html {redirect_to '/'}

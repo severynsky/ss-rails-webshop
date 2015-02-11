@@ -18,7 +18,6 @@ class ProductsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @product = Product.new(product_params)
     if @product.save
       redirect_to @product
@@ -28,7 +27,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    # binding.pry
     @categories = Category.all
     @manufactures = Manufacture.all
   end
@@ -36,7 +34,6 @@ class ProductsController < ApplicationController
   def update
     if @product.update(product_params)
       redirect_to "/"
-      # render plain: params[:product]
     else
       render 'edit'
     end
@@ -46,7 +43,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-  # binding.pry
     Product.find(params[:id]).destroy
     redirect_to '/'
   end
