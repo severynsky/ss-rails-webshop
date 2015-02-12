@@ -12,8 +12,16 @@
 
     <p><%= p.label :name %>: <%= p.text_field :name %></p>
 
+    <p>Pictures: <%= @product.pictures.count %></p>
+    <% if @product.pictures.exists? %>
+        <% @product.pictures.each do |image| %>
+            <%= image_tag image.image_file_name, class: "img" %>
+
+        <% end %>
+        <% end %>
+
     <%= p.fields_for :pictures do |picture_field|%>
-        <%= picture_field.file_field :image, :class =>"form-control"%>
+        <p><%= picture_field.file_field :image, value: "4", :class =>"form-control"%></p>
     <% end %>
 
     <span>Select category: </span>

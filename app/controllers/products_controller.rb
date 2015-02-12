@@ -30,10 +30,11 @@ class ProductsController < ApplicationController
   def edit
     @categories = Category.all
     @manufactures = Manufacture.all
+    @product.pictures.build
   end
 
   def update
-    binding.pry
+    # binding.pry
     if @product.update(product_params)
       redirect_to "/"
     else
@@ -42,6 +43,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    # binding.pry
   end
 
   def destroy

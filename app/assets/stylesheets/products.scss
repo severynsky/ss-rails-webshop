@@ -5,6 +5,10 @@
 body{
   font-family: sans-serif;
 }
+img.img{
+  height: 120px;
+  margin: 10px;
+}
 .clear{
   clear: both;
 }
@@ -52,7 +56,7 @@ ul.products-list{
   }
 }
 .product-image{
-  width: 400px;
+  width: 100px;
   height: auto;
 }
 ul.products-list:hover{

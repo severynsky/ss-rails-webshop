@@ -1,7 +1,7 @@
 <h3>This is <span><%= @product.name %> page</span></h3>
 
 <% @product.pictures.each do |prod_pic|%>
-    <%= image_tag prod_pic.image, class: "product-image #{@product.id}" %>
+    <%= image_tag prod_pic.image, class: "product-image #{prod_pic.id}" %>
 <% end %>
 <p class="<%= @product.category.title%>"><%= @product.category.title %></p>
 <p><%= @product.color %></p>
@@ -9,7 +9,6 @@
 <% if can? :update, @product%>
     <%= link_to "edit", edit_product_path %>
 <% end %>
-    <h2><%= @alarm %></h2>
 <% if can? :delete, @product%>
     <%= link_to "delete", product_path, method: :delete, data: {confirm: 'are you sure?'} %>
 <% end %>
