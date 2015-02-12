@@ -4,8 +4,9 @@ class Product < ActiveRecord::Base
   has_many :product_records, dependent: :destroy
   belongs_to :category
   belongs_to :manufacture
+  has_many :pictures, as: :imageable
 
-  validates :name, :image, :color, :description, :category_id, :sku, :manufacture_id, presence: true
+  accepts_nested_attributes_for :pictures
 
   protected
   def check_product_exist_in_product_record

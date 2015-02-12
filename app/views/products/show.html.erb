@@ -1,6 +1,8 @@
 <h3>This is <span><%= @product.name %> page</span></h3>
 
-<%= image_tag @product.image, class: "product-image #{@product.id}" %>
+<% @product.pictures.each do |prod_pic|%>
+    <%= image_tag prod_pic.image, class: "product-image #{@product.id}" %>
+<% end %>
 <p class="<%= @product.category.title%>"><%= @product.category.title %></p>
 <p><%= @product.color %></p>
 <p><%= @product.manufacture.title %></p>

@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
   def new
     if user_signed_in?
       @product = Product.new
+      @product.pictures.build
       @categories = Category.all
       @manufactures = Manufacture.all
     else
@@ -32,6 +33,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    binding.pry
     if @product.update(product_params)
       redirect_to "/"
     else
@@ -58,7 +60,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :category_id, :image, :manufacture_id, :color, :price, :sku, :description, :id)
+    params.require(:product).permit(:name, :category_id,  :manufacture_id, :color, :price, :sku, :description, pictures_attributes: [:image])
   end
 
   def find_product

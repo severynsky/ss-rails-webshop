@@ -1,4 +1,4 @@
-<%= form_for @product, html: {class: 'add-product-form'} do |p| %>
+<%= form_for @product, html: {class: 'add-product-form', multipart: true} do |p| %>
 
     <% if @product.errors.any? %>
         <div id="error_explanation">
@@ -11,10 +11,14 @@
     <% end %>
 
     <p><%= p.label :name %>: <%= p.text_field :name %></p>
+
+    <%= p.fields_for :pictures do |picture_field|%>
+        <%= picture_field.file_field :image, :class =>"form-control"%>
+    <% end %>
+
     <span>Select category: </span>
     <%= p.collection_select(:category_id, @categories, :id, :title) %></br></br>
     <span>Select manufacturer: </span><%= p.collection_select(:manufacture_id, @manufactures, :id, :title) %></br></br>
-    <p><%= p.label :image %>: <%= p.text_field :image %></p>
     <p><%= p.label :color %>: <%= p.text_field :color %></p>
     <p><%= p.label :price %>: <%= p.text_field :price %></p>
     <p><%= p.label :sku %>: <%= p.text_field :sku %></p>

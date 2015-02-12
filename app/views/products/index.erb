@@ -3,7 +3,6 @@
 <% @products.each do |p| %>
     <ul class="products-list" id="product-item-<%= p.id %>">
       <h3><%= link_to p.name, product_path(p) %></h3>
-      <li class="list-image"><%= image_tag p.image%></li>
       <li>Manufacture by: <%= link_to p.manufacture.title, manufacture_path(p.manufacture) %></span></li>
       <li>Category: <%= link_to p.category.title, category_path(p.category) %></li>
       <li class="color">Color: <span><%= p.color %></span></li>
@@ -11,7 +10,7 @@
       <li class="sku">SKU: <span><%= p.sku %></span></li>
       <li class="description">Description: <span><%= p.description %></span></li>
 
-      <%= button_to "add to carts", product_records_path(product_id: p),remote: true %></p>
+      <%= button_to "add to carts", product_records_path(product_id: p) %></p>
 
     </ul>
 
