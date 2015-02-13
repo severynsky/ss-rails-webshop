@@ -6,7 +6,9 @@ class Product < ActiveRecord::Base
   belongs_to :manufacture
   has_many :pictures, as: :imageable
 
-  accepts_nested_attributes_for :pictures
+  # validates :pictures, presence: true
+
+  accepts_nested_attributes_for :pictures, :reject_if => lambda { |t| t['image'].blank? }
 
   protected
   def check_product_exist_in_product_record

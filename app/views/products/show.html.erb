@@ -1,7 +1,11 @@
 <h3>This is <span><%= @product.name %> page</span></h3>
 
 <% @product.pictures.each do |prod_pic|%>
-    <%= image_tag prod_pic.image, class: "product-image #{prod_pic.id}" %>
+    <%  if prod_pic.image.exists? %>
+        <%= image_tag prod_pic.image, class: "product-image #{prod_pic.id}" %>
+    <% else %>
+        <image src="./app/assets/images/missing.jpg" />
+    <% end %>
 <% end %>
 <p class="<%= @product.category.title%>">Category: <%= @product.category.title %></p>
 <p>Color: <%= @product.color %></p>
