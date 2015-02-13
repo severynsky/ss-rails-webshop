@@ -34,7 +34,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    # binding.pry
     if @product.update(product_params)
       redirect_to "/"
     else
@@ -57,6 +56,12 @@ class ProductsController < ApplicationController
     @categories = Category.all
     @manufactures = Manufacture.all
     @user = current_user
+  end
+
+  def delete_image
+    Picture.find(params[:image_id]).destroy
+    redirect_to  '/'
+    binding.pry
   end
 
   private

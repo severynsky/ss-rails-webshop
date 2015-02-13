@@ -3,7 +3,11 @@
 <% @products.each do |p| %>
     <ul class="products-list" id="product-item-<%= p.id %>">
       <h3><%= link_to p.name, product_path(p) %></h3>
-      <li class="list-image"><%= image_tag p.pictures.first.image_file_name%></li>
+      <% if p.pictures.exists? %>
+          <li class="list-image"><%= image_tag p.pictures.first.image_file_name%></li>
+      <% else %>
+          <li class="list-image"><img src="/assets/missing.jpg"></li>
+      <% end %>
       <li>Manufacture by: <%= link_to p.manufacture.title, manufacture_path(p.manufacture) %></span></li>
       <li>Category: <%= link_to p.category.title, category_path(p.category) %></li>
       <li class="color">Color: <span><%= p.color %></span></li>

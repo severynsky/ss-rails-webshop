@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'products#index'
-  resources :products
+  resources :products do
+    member do
+      post 'delete_image'
+    end
+  end
   resources :categories
   resources :manufactures
   resources :users

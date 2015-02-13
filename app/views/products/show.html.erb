@@ -3,9 +3,12 @@
 <% @product.pictures.each do |prod_pic|%>
     <%= image_tag prod_pic.image, class: "product-image #{prod_pic.id}" %>
 <% end %>
-<p class="<%= @product.category.title%>"><%= @product.category.title %></p>
-<p><%= @product.color %></p>
-<p><%= @product.manufacture.title %></p>
+<p class="<%= @product.category.title%>">Category: <%= @product.category.title %></p>
+<p>Color: <%= @product.color %></p>
+<p>Manufacture: <%= @product.manufacture.title %></p>
+<p>Cost: <span class="red"><%= @product.price %></span></p>
+<p>Description: </p>
+    <p class="description"><%= @product.description %></p>
 <% if can? :update, @product%>
     <%= link_to "edit", edit_product_path %>
 <% end %>
