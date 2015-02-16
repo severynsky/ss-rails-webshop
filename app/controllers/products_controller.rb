@@ -35,7 +35,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    binding.pry
     if @product.update(product_params)
       render 'show'
     else
