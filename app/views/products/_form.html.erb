@@ -20,11 +20,11 @@
 
     <%= p.fields_for :pictures do |picture_field| %>
         <% if picture_field.object.new_record? %>
-            <p><%= picture_field.file_field :image,  :class =>"form-control"%></p>
+            <p><%= file_field_tag "product[pictures_attributes][][image]", multiple: true, class: "form-control"%></p>
         <% else %>
             <%= image_tag picture_field.object.image_file_name, class: "img", id: "prod-img-#{picture_field.object.id}" %>
             <%= link_to "delete", delete_image_picture_path(@product, image_id: picture_field.object ), method: :post,data: {confirm: 'are you sure?'},remote: true %>
-        <% end %>
+            <% end %>
 
     <% end %>
 
