@@ -1,0 +1,17 @@
+<h2>new order No.<%= @cart.id %></h2>
+<div class="col-xs-6">
+    <% @cart.product_records.each do |prod_rec| %>
+
+        <div class="order-item">
+          <p><%= prod_rec.product.name %></p>
+          <p><%= image_tag prod_rec.product.pictures.last.image_file_name %></p>
+
+        </div>
+        <%= link_to 'remove', product_record_path(prod_rec) , method: :delete, data: {confirm: 'are you sure?'}%>
+    <% end %>
+</div>
+<div class="col-xs-6">
+    <p><%= @user.username %></p>
+    <p><%= @user.email %></p>
+    <p>Ship selected items to: <strong><%= @user.address %></strong></p>
+</div>

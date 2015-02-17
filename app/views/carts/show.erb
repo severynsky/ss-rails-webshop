@@ -9,8 +9,10 @@
           <p class="red"><%= item.product.price %></p>
             <%= link_to "remove from cart", product_record_path(item), method: :delete, data: {confirm: "are You sure"}, remote: true%>
             </div>
-    <% end %>
-      </div>
+      <% end %>
+        <div class="clear"></div>
+    <%= link_to "create order", new_order_path %>
+</div>
 <% else %>
     <h3>There is no items in your cart</h3>
 

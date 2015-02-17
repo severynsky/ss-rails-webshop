@@ -19,7 +19,6 @@ class ProductsController < ApplicationController
   end
 
   def create
-    binding.pry
     @product = Product.new(product_params)
     if @product.save
       redirect_to @product
@@ -35,7 +34,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    binding.pry
     if @product.update(product_params)
       render 'show'
     else
