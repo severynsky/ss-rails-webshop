@@ -2,5 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .order-item img{
-  height: 120px;
+  width: 100%;
+}
+.order-item{
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #BBBBBB;
+  border-right: 6px solid #d9534f;
+  border-radius: 5px 0 0 5px;
+}
+.order-item:hover {
+  border-color:#d43f3a;
+  box-shadow: 1px 1px 6px rgba(40,40,40,0.3);
 }
