@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    $counter = index_counter
+    $counter =  index_counter
     @products = Product.all
     @categories = Category.all
     @manufactures = Manufacture.all

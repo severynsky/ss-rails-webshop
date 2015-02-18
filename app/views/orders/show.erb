@@ -1,5 +1,6 @@
+<h4>Order No: <%= @order.id %></h4>
 <div class="col-xs-6">
-  <% @cart.product_records.each do |prod_rec| %>
+  <% @order.product_records.each do |prod_rec| %>
 
       <div class="order-item">
         <h4><%= prod_rec.product.name %></h4>
@@ -13,7 +14,7 @@
             <%= prod_rec.quantity %>
           <p></p>
           <p><strong>Price:</strong>
-            <strong><span class="red" id="price"><%= prod_rec.product.price %></span></strong></p>
+            <strong><span class="red" id="price"><%= prod_rec.quantity_price %></span></strong></p>
         </div>
         <div class="clear"></div>
       </div>

@@ -1,33 +1,41 @@
 class OrdersController < ApplicationController
-  before_action :find_all_for_order
+  before_action :prepare_order
 
   def new
-    @order = Order.new
+    if !@cart.product_records.empty?
+      @order = Order.new
+    else
+      flash[:notice] =  'You cannot create order with empty cart!'
+      redirect_to '/'
+    end
   end
 
   def create
-    @order = Order.new(cart_id: @cart.id, user_id: @user.id)
+    @order = Order.new(user_id: @user.id)
+    @order.product_records = @cart.product_records
+    binding.pry
     if @order.save
       redirect_to 'orders#show'
+      @cart.delete
     else
       render 'new'
     end
   end
 
   def show
-    binding.pry
-    @cart = Cart.find(session[:cart_id])
-    # @order = Order.find(params[:id])
+    @order = Order.find_by(user_id:(current_user.id))
   end
 
   def index
     @orders = Order.all
+    # binding.pry
   end
 
   private
 
-  def find_all_for_order
-    @cart = Cart.find(session[:cart_id])
+  def prepare_order
+
+    @cart = Cart.find_by(id: session[:cart_id])
     @user = current_user
   end
 

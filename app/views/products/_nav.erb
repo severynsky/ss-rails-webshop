@@ -4,10 +4,9 @@
     <li><%= link_to "categories", categories_path %></li>
     <li><%= link_to "manufactures", manufactures_path %></li>
     <li><%= link_to "new product", new_product_path %></li>
-        <li><%= link_to "see all users", users_path %></li>
-    <% if (session[:cart_id]) != nil %>
-        <li><%= link_to "see cart", cart_path(session[:cart_id]) %></li>
-        <% end %>
+    <li><%= link_to "see all users", users_path %></li>
+    <li><%= link_to "see cart", cart_path(session[:cart_id]) %></li>
+    <li><%= link_to "see orders", orders_path %></li>
     <% if $counter > 5 %>
         <li><%= $counter %></li>
         <% end %>

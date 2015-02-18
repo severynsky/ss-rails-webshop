@@ -30,7 +30,6 @@ class ProductRecordsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @product_record.destroy
     respond_to do |format|
       format.html {redirect_to '/'}
