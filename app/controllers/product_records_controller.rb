@@ -25,6 +25,7 @@ class ProductRecordsController < ApplicationController
   end
 
   def show
+    # binding.pry
     @record = ProductRecord.find(params[:id])
   end
 

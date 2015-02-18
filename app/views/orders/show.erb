@@ -1,1 +1,27 @@
-<%= render "toshow" %>
+<div class="col-xs-6">
+  <% @cart.product_records.each do |prod_rec| %>
+
+      <div class="order-item">
+        <h4><%= prod_rec.product.name %></h4>
+        <div class="col-xs-6">
+          <p><%= image_tag prod_rec.product.pictures.last.image_file_name %></p>
+        </div>
+        <div class="col-xs-6">
+          <p><strong>About product:</strong></p>
+          <%= prod_rec.product.description %>
+          <p><strong>Quantity:</strong>
+            <%= prod_rec.quantity %>
+          <p></p>
+          <p><strong>Price:</strong>
+            <strong><span class="red" id="price"><%= prod_rec.product.price %></span></strong></p>
+        </div>
+        <div class="clear"></div>
+      </div>
+        <% end %>
+</div>
+
+<div class="col-xs-6">
+  <p><%= @user.username %></p>
+  <p><%= @user.email %></p>
+  <p>Ship selected items to: <strong><%= @user.address %></strong></p>
+</div>

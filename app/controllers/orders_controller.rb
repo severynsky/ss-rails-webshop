@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :find_all_for_order
 
   def new
-    # binding.pry
     @order = Order.new
   end
 
@@ -16,7 +15,13 @@ class OrdersController < ApplicationController
   end
 
   def show
+    binding.pry
     @cart = Cart.find(session[:cart_id])
+    # @order = Order.find(params[:id])
+  end
+
+  def index
+    @orders = Order.all
   end
 
   private
