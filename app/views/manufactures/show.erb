@@ -1,5 +1,6 @@
 <h2>Hello this is manufacture page</h2>
-
+    <%= @manufacture.description %>
+<div class="clear"></div>
 <% @prods_from_manuf.each do |prod| %>
     <div class="prod-by-manufacture-item">
         <h3><%= link_to prod.name, edit_product_path(prod) %></h3>

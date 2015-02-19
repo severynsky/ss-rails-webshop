@@ -6,7 +6,17 @@ class Product < ActiveRecord::Base
   belongs_to :manufacture
   has_many :pictures, as: :imageable
 
-  # validates :pictures, presence: true
+  validates :name, presence: true,
+      uniqueness: true,
+      length: {minimum: 4}
+  validates :sku, presence: true,
+        uniqueness: true,
+      length: {minimum: 5}
+  validates :price, numericality: true
+  validates :color, presence: true
+  validates :description, presence: true,
+      length: {minimum: 10}
+  validates :pictures, presence: true
 
   accepts_nested_attributes_for :pictures, :reject_if => lambda { |t| t['image'].blank? }
 

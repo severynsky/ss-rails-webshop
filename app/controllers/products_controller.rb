@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_product, only: [:show, :edit, :update, :destroy]
   before_action :find_cart, only: :index
+  before_action :find_for_prod, except: [:destroy]
 
   # load_and_authorize_resource
 
@@ -11,8 +12,6 @@ class ProductsController < ApplicationController
     if user_signed_in?
       @product = Product.new
       @product.pictures.build
-      @categories = Category.all
-      @manufactures = Manufacture.all
     else
       flash[:notice] = "You have no rights to create new product"
       redirect_to root_url
@@ -29,8 +28,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @categories = Category.all
-    @manufactures = Manufacture.all
+
     @product.pictures.build
   end
 
@@ -38,6 +36,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       render 'show'
     else
+      binding.pry
       render 'edit'
     end
   end
@@ -53,13 +52,16 @@ class ProductsController < ApplicationController
   def index
     $counter =  index_counter
     @products = Product.all
-    @categories = Category.all
-    @manufactures = Manufacture.all
     @user = current_user
   end
 
 
   private
+
+  def find_for_prod
+    @categories = Category.all
+    @manufactures = Manufacture.all
+  end
 
   def product_params
     params.require(:product).permit(:name, :category_id,  :manufacture_id, :color, :price, :sku, :description, pictures_attributes: [:image])

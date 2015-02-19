@@ -1,0 +1,19 @@
+%h2
+  This is
+  %span.red
+    #{@manufacture.title}
+  page
+  %h5
+    = @manufacture.description
+%div.clear
+- @prods_from_manuf.each do |prod|
+  %div.prod-by-manufacture-item
+    %h3
+      = link_to(prod.name, edit_product_path(prod))
+    = image_tag(prod.pictures.first.image_file_name)
+    %p
+      = prod.description
+    %p
+      = prod.color
+    %p.price
+      = prod.price
