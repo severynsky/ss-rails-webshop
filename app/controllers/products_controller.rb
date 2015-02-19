@@ -51,7 +51,6 @@ class ProductsController < ApplicationController
   end
 
   def index
-    # binding.pry
     $counter =  index_counter
     @products = Product.all
     @categories = Category.all
@@ -71,7 +70,8 @@ class ProductsController < ApplicationController
   end
 
   def find_cart
-    @cart = Cart.find(session[:cart_id])
+    # binding.pry
+    @cart = Cart.find_by(id: session[:cart_id])
   end
 
 end
