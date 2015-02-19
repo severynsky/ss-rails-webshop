@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
 
-  def delete_image
-    @picture = Picture.find(params[:image_id])
+  def destroy
+    @picture = Picture.find(params[:id])
     @picture.destroy
     # binding.pry
     respond_to do |format|

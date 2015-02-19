@@ -22,8 +22,8 @@
         <% if picture_field.object.new_record? %>
             <p><%= file_field_tag "product[pictures_attributes][][image]", multiple: true, class: "form-control"%></p>
         <% else %>
-            <%= image_tag picture_field.object.image_file_name, class: "img", id: "prod-img-#{picture_field.object.id}" %>
-            <%= link_to "delete", image_picture_path(@product, image_id: picture_field.object ), method: :delete,data: {confirm: 'are you sure?'},remote: true %>
+            <%= image_tag picture_field.object.image_file_name, class: "product-img", id: "prod-img-#{picture_field.object.id}" %>
+            <%= link_to "delete", picture_path(picture_field.object), method: :delete,data: {confirm: 'are you sure?'},remote: true %>
             <% end %>
 
     <% end %>

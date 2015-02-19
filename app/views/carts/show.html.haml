@@ -1,0 +1,24 @@
+- if @cart.product_records.count > 0
+  %h2
+    = $print
+  .cart
+    - @cart.product_records.each do |item|
+      %div{ class: "cart-item", id: "cart-item-#{ item.product_id }"}
+        %p
+          = item.product.name
+        = image_tag( item.product.pictures.last.image_file_name, class: 'img' )
+        %p
+        %div.col-xs-6
+          %p
+            quantity:
+            = item.quantity
+          %p.red
+            = item.quantity_price
+        %div.col-xs-6
+          = link_to( "remove from cart", product_record_path(item), method: :delete, data: {confirm: "are You sure"},class: "btn btn-danger btn-xs", remote: true)
+
+      %div.clear
+      = link_to( "new order", new_order_path, class: "btn btn-info")
+- else
+  %h3
+    There is no items in your cart
