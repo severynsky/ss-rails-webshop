@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   include Devise::Controllers::Helpers
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_product, only: [:show, :edit, :update, :destroy]
+  before_action :find_cart, only: :index
 
   # load_and_authorize_resource
 
@@ -50,6 +51,7 @@ class ProductsController < ApplicationController
   end
 
   def index
+    # binding.pry
     $counter =  index_counter
     @products = Product.all
     @categories = Category.all
@@ -66,6 +68,10 @@ class ProductsController < ApplicationController
 
   def find_product
     @product = Product.find(params[:id])
+  end
+
+  def find_cart
+    @cart = Cart.find(session[:cart_id])
   end
 
 end
