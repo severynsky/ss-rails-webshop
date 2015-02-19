@@ -5,7 +5,8 @@ class CartsController < ApplicationController
   end
 
   def index
-    @product_records = ProductRecord.all
+    @cart = Cart.all
+    # @product_records = ProductRecord.all
     # respond_with(@product_record)
   end
 

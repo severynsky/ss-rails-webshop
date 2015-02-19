@@ -23,7 +23,7 @@
             <p><%= file_field_tag "product[pictures_attributes][][image]", multiple: true, class: "form-control"%></p>
         <% else %>
             <%= image_tag picture_field.object.image_file_name, class: "img", id: "prod-img-#{picture_field.object.id}" %>
-            <%= link_to "delete", delete_image_picture_path(@product, image_id: picture_field.object ), method: :post,data: {confirm: 'are you sure?'},remote: true %>
+            <%= link_to "delete", image_picture_path(@product, image_id: picture_field.object ), method: :delete,data: {confirm: 'are you sure?'},remote: true %>
             <% end %>
 
     <% end %>

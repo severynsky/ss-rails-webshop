@@ -1,4 +1,4 @@
 class Cart < ActiveRecord::Base
-  has_many :product_records, dependent: :destroy
+  has_many :product_records
 
 end

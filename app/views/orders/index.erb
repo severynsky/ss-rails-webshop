@@ -1,0 +1,12 @@
+<% if @user %>
+    <h3><span class="red"><%= @user.username %></span> Orders history</h3>
+<% else %>
+    <h3>Welcome guest, Your orders</h3>
+<% end %>
+<% @orders.each do |order| %>
+    <h4><%= link_to "order No: #{order.id}", order_path(order.id) %></h4>
+    <% order.product_records.each do |prodrec| %>
+        <h5><%= prodrec.product.name %>, cost <span class="red"><%= prodrec.product.price %></span></h5>
+
+    <% end %>
+<% end %>
