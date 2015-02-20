@@ -16,7 +16,7 @@ class Product < ActiveRecord::Base
   validates :color, presence: true
   validates :description, presence: true,
       length: {minimum: 10}
-  validates :pictures, presence: true
+  # validates :pictures, presence: true
 
   accepts_nested_attributes_for :pictures, :reject_if => lambda { |t| t['image'].blank? }
 

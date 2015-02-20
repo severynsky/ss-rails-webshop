@@ -28,15 +28,15 @@ class ProductsController < ApplicationController
   end
 
   def edit
-
     @product.pictures.build
   end
 
   def update
+    # binding.pry
     if @product.update(product_params)
       render 'show'
     else
-      binding.pry
+      # binding.pry
       render 'edit'
     end
   end

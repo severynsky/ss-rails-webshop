@@ -3,7 +3,7 @@
 - @products.each do |p|
   %ul{ class: "products-list", id: "product-item-#{ p.id }"}
     %h3
-      = link_to( p.name, product_path(p))
+      = link_to( p.name, product_path(p), class: 'font-ch')
     - if p.pictures.exists?
       %li.list-image
         = image_tag p.pictures.first.image_file_name

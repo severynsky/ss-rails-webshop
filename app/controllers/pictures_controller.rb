@@ -1,11 +1,8 @@
 class PicturesController < ApplicationController
 
   def destroy
-    @picture = Picture.find(params[:id])
-    @picture.destroy
-    # binding.pry
+    @picture = Picture.find(params[:id]).destroy
     respond_to do |format|
-      format.html {redirect_to '/'}
       format.js {render 'delete_image'}
     end
   end
