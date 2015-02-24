@@ -1,0 +1,16 @@
+<%= form_for @category, html: {class: 'add-category-form'} do |c| %>
+
+    <% if @category.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibitet this product for being saved: </h2>
+        </div>
+        <ul>
+          <% @product.errors.full_messages.each do |msg|  %>
+              <li><%= msg %><% end %></li>
+        </ul>
+    <% end %>
+
+    <p><%= c.label :title %>: <%= c.text_field :title %></p>
+    <p><%= c.submit %></p>
+
+<% end %>

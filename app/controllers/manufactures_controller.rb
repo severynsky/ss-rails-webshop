@@ -32,13 +32,14 @@ class ManufacturesController < ApplicationController
   end
 
   def index
+    binding.pry
     @manufactures = Manufacture.all
   end
 
   private
 
   def manufacture_params
-    params.require(:manufacture).permit(:title)
+    params.require(:manufacture).permit(:title, :description)
   end
 
   def find_manufactures
