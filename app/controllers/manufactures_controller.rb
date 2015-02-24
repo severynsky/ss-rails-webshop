@@ -32,7 +32,6 @@ class ManufacturesController < ApplicationController
   end
 
   def index
-    binding.pry
     @manufactures = Manufacture.all
   end
 

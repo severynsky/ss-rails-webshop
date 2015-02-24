@@ -13,9 +13,8 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(user_id: @user.id)
     @order.product_records = @cart.product_records
-    binding.pry
     if @order.save
-      redirect_to 'orders#show'
+      redirect_to @order
       @cart.delete
     else
       render 'new'
@@ -27,8 +26,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
-    # binding.pry
+    @orders = Order.where(user_id:[current_user.id])
   end
 
   private
