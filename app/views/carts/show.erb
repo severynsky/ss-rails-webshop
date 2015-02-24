@@ -1,12 +1,13 @@
 <% if @cart.product_records.count > 0 %>
+    <h2><%= $print %></h2>
 <div class="cart">
   <% @cart.product_records.each do |item| %>
-      <div class="cart-item">
+      <div class="cart-item" id="cart-item-<%= item.product_id %>">
           <p><%= item.product.name %></p>
           <%= image_tag item.product.image, class: 'img' %>
           <p>quantity: <%= item.quantity %></p>
           <p class="red"><%= item.product.price %></p>
-            <%= link_to "remove from cart", product_record_path(item), method: :delete, data: {confirm: "are You sure"}%>
+            <%= link_to "remove from cart", product_record_path(item), method: :delete, data: {confirm: "are You sure"}, remote: true%>
             </div>
     <% end %>
       </div>

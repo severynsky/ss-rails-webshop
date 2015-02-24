@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   def new
     if user_signed_in?
@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @product = Product.new(product_params)
     if @product.save
       redirect_to @product
@@ -27,6 +28,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    # binding.pry
     @categories = Category.all
     @manufactures = Manufacture.all
   end
@@ -43,6 +45,12 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def destroy
+  # binding.pry
+    Product.find(params[:id]).destroy
+    redirect_to '/'
+  end
+
   def index
     $counter = index_counter
     @products = Product.all
@@ -54,7 +62,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name,:category_id, :image, :manufacture_id, :color, :price, :sku, :description, :id)
+    params.require(:product).permit(:name, :category_id, :image, :manufacture_id, :color, :price, :sku, :description, :id)
   end
 
   def find_product
