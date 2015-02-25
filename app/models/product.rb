@@ -12,8 +12,10 @@ class Product < ActiveRecord::Base
   validates :sku, presence: true,
         uniqueness: true,
       length: {minimum: 5}
-  validates :price, numericality: true
+  validates :price, numericality: true,
+      presence: true
   validates :color, presence: true
+  validates :manufacture_id, presence: true
   validates :description, presence: true,
       length: {minimum: 10}
   # validates :pictures, presence: true
