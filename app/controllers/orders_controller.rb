@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = current_user.orders
     # binding.pry
   end
 
