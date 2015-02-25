@@ -38,7 +38,7 @@ class ManufacturesController < ApplicationController
   private
 
   def manufacture_params
-    params.require(:manufacture).permit(:title)
+    params.require(:manufacture).permit(:title, :description)
   end
 
   def find_manufactures
