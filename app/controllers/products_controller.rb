@@ -55,6 +55,10 @@ class ProductsController < ApplicationController
     @user = current_user
   end
 
+  def custom_action
+    binding.pry
+  end
+
 
   private
 

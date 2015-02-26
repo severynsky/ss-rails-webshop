@@ -1,0 +1,36 @@
+= navbar  do
+  = navbar_header brand: 'Yours <span class="font-ch">TechBay</span>', brand_link: '/'
+  = navbar_collapse do
+    = navbar_group class: 'foo', id: 'menu' do
+      -#= navbar_text 'Pick an option:'
+      = navbar_item "Home", '/'
+      = navbar_item "Categories", '/categories'
+      = navbar_item "Manufactures", '/manufactures'
+      - if @cart != nil
+        = navbar_item cart_path(session[:cart_id]) do
+          %span.glyphicon.glyphicon-shopping-cart
+          See cart
+      - if @user != nil
+        = navbar_dropdown "Stuff" do
+          -#= navbar_dropdown_header 'Great stuff!'
+          = navbar_item "See orders", orders_path
+          - if @user.role == 'admin'
+            = navbar_dropdown_divider
+            = navbar_item "Create Product", new_product_path
+            = navbar_item "Check users", users_path
+      - if $counter != nil && $counter > 5
+        %li
+          counter
+          =  $counter
+    = navbar_group align: 'right' do
+      - if signed_in?
+        = navbar_item current_user.username, edit_user_registration_path
+        = navbar_item "exit", destroy_user_session_path, method: :delete
+      - else
+        = navbar_item "login", new_user_session_path
+
+
+      - if true # check if user is logged in, maybe like "if current_user.present?"
+        -#= navbar_item "Log Out", destroy_user_session_path, method: :delete
+      - else
+        -#= navbar_item "Log In", '/login'

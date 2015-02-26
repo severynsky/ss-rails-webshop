@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'products#index'
-  resources :products
+  resources :products do
+    collection do
+      get "custom_action"
+    end
+  end
   resources :pictures
   resources :categories
   resources :manufactures

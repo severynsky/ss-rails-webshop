@@ -1,0 +1,35 @@
+%h2 All products
+- @products.each do |p|
+  %ul{ class: "products-list", id: "product-item-#{ p.id }"}
+    %h3
+      = link_to( p.name, product_path(p), class: 'font-ch')
+    - if p.pictures.exists?
+      %li.list-image
+        = image_tag p.pictures.first.image_file_name
+    - else
+      %li.list-image
+        %img{src: "/assets/missing.jpg"}
+    %li
+      Manufactured by:
+      = link_to(p.manufacture.title, manufacture_path(p.manufacture) )
+    %li
+      Category:
+      = link_to(p.category.title, category_path(p.category) )
+    %li.color
+      Color:
+      %span
+        = p.color
+    %li.price
+      Cost:
+      %span.red
+        = number_to_currency(p.price)
+    %li.sku
+      SKU:
+      %span
+        = p.sku
+    %li
+      Description:
+      %span
+        = p.description
+    %p
+    = button_to("Add to cart", product_records_path(product_id: p), class: "btn btn-info btn-sm")
