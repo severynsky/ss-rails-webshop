@@ -28,6 +28,9 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
+  # Device config for users
+  config.include Devise::TestHelpers, type: :controller
+
   config.mock_with :rspec do |c|
     c.syntax = [:should, :expect]
   end
