@@ -22,5 +22,11 @@ $(document).ready(function() {
     $('#cart-item-1').click(function () {
         console.log('hello from application.js')
     })
+
+    var container = $('#product-container');
+    $container.masonry({
+        columnWidth: 4110,
+        itemSelector: '.item'
+    });
 });
 

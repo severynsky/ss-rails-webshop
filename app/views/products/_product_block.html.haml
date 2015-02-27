@@ -1,7 +1,7 @@
-%div#product-container
-  %h2 All products
+%h2 All products
+%div{id: "product-container", class: "js-masonry", "data-masonry-options"=> { "itemSelector": ".products-list" }}
   - @products.each do |p|
-    %ul{ class: "products-list", id: "product-item-#{ p.id }"}
+    %div{ class: "products-list", id: "product-item-#{ p.id }"}
       %h3
         = link_to( p.name, product_path(p), class: 'font-ch')
       - if p.pictures.exists?
@@ -34,3 +34,4 @@
           = p.description
       %p
       = button_to("Add to cart", product_records_path(product_id: p), class: "btn btn-info btn-sm")
+      %p.clear
