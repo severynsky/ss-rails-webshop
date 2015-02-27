@@ -6,6 +6,10 @@ class Product < ActiveRecord::Base
   belongs_to :manufacture
   has_many :pictures, as: :imageable
 
+  scope :manufacture, -> (manufacture_id) {where(manufacture_id: manufacture_id)}
+  scope :category, -> (category_id) {where(category_id: category_id)}
+  # scope :manufacture, lambda {|manufacture_id| where manufacture_id: manufacture_id}
+
   validates :name, presence: true,
       uniqueness: true,
       length: {minimum: 4}

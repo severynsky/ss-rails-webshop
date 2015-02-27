@@ -1,11 +1,19 @@
 
 %div.col-xs-2.filter-section
   %h2 Filters
+  %h4
+    Sort by:
   %h6
-    sort by manufacturer
-    - @manufactures.each do |m|
-      %ul.manufacture-list
+    manufacturer
+    %ul.filter-list.manufacture
+      - @manufactures.each do |m|
         %li
-          = link_to m.title, custom_action_products_path
+          = link_to m.title, custom_action_products_path(manufacture: m.id), remote: true
+  %h6
+    category
+    %ul.filter-list.category
+      - @categories.each do |c|
+        %li
+          = link_to c.title, custom_action_products_path(category: c.id), remote: true
 %div.col-xs-10
   = render "products/product_block"

@@ -51,12 +51,21 @@ class ProductsController < ApplicationController
 
   def index
     $counter =  index_counter
+
     @products = Product.all
+    @products = Product.manufacture(params[:manufacture_id]) if params[:manufacture_id].present?
     @user = current_user
   end
 
   def custom_action
-    binding.pry
+    if params[:category]
+      @products = Product.category(params[:category])
+    elsif params[:manufacture]
+      @products = Product.manufacture(params[:manufacture])
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
 
