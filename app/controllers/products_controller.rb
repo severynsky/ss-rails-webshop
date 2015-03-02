@@ -50,8 +50,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    $counter =  index_counter
-
+    $counter = index_counter
     @products = Product.all
     @products = Product.manufacture(params[:manufacture_id]) if params[:manufacture_id].present?
     @user = current_user
