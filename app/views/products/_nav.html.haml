@@ -18,10 +18,6 @@
             = navbar_dropdown_divider
             = navbar_item "Create Product", new_product_path
             = navbar_item "Check users", users_path
-      - if $counter != nil && $counter > 5
-        %li
-          counter
-          =  $counter
     = navbar_group align: 'right' do
       - if signed_in?
         = navbar_item current_user.username, edit_user_registration_path

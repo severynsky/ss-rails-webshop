@@ -1,5 +1,5 @@
 class ManufacturesController < ApplicationController
-  before_action :find_manufactures, only: [:show, :edit, :update, :destroy]
+  before_action :find_manufacture, only: [:show, :edit, :update, :destroy]
 
   def new
     @manufacture = Manufacture.new
@@ -41,7 +41,7 @@ class ManufacturesController < ApplicationController
     params.require(:manufacture).permit(:title, :description)
   end
 
-  def find_manufactures
+  def find_manufacture
     @manufacture = Manufacture.find(params[:id])
   end
 

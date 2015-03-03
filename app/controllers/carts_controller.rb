@@ -6,12 +6,9 @@ class CartsController < ApplicationController
 
   def index
     @cart = Cart.all
-    # @product_records = ProductRecord.all
-    # respond_with(@product_record)
   end
 
   def destroy
-    # render plain: params
   end
 
   private

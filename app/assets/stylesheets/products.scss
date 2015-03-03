@@ -8,6 +8,9 @@ body{
 .font-ch{
   font-family: 'Gloria Hallelujah', cursive;
 }
+.product-list-container{
+  color: #7f8c8d;
+}
 img.img{
 //  height: 120px;
 //  margin: 10px;
@@ -44,7 +47,6 @@ nav1 ul {
   a{
     text-decoration: none;
     color: #666666;
-    transition: all 0.1s ease-in-out ;
   }
 }
 ul.products-list{
@@ -53,7 +55,6 @@ ul.products-list{
   border-radius: 5px;
   padding: 10px;
   width: 250px;
-  transition: all 0.1s ease-in-out;
   float: left;
   margin: 10px;
 
@@ -67,6 +68,39 @@ ul.products-list{
   height: auto;
 }
 ul.products-list:hover{
-   box-shadow: 1px 1px 6px rgba(50,50,50,0.4);
-  border: 1px solid orange;
+   box-shadow: 1px 1px 5px rgba(50,50,50,0.4);
+    border: 1px solid orange;
+  transition: all 0.1s;
  }
+.filter-section {
+  h6{
+    font-weight: 300;
+    font-size: 15px;
+    border-left: 2px solid orange;
+    padding-left: 3px;
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 10px;
+    text-align: right;
+    li {
+      margin: 12px 0 8px 0;
+    }
+    a {
+      font-size: 12px;
+      width: 90px;
+      font-weight: 200;
+      color: #666666;
+      text-decoration: none;
+      border: 1px solid #BBBBBB;
+      border-radius: 5px;
+      padding: 3px 5px 3px 5px;
+      transition: all 0.1s;
+    }
+    a:hover {
+      border-color: orange;
+      color: orange;
+      box-shadow: 1px 1px 3px rgba(50,50,50,0.4);
+    }
+  }
+}

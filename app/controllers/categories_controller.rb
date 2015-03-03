@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
 
+  before_action :find_category, except: [:index]
   def new
     @category = Category.new
   end
@@ -14,11 +15,9 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
 
   def update
-    @category = Category.find(params[:id])
     if @category.update(category_params)
     redirect_to "/"
     else
@@ -27,10 +26,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
-    @prods_from_cat = Product.where(category_id:  @category)
+    @prods_from_cat = @category.products
     Product.find_by_category_id(params[:id])
-    # render plain: @prods_from_cat
   end
 
   def index
@@ -38,6 +35,11 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def find_category
+    @category = Category.find(params[:id])
+  end
+
   def category_params
     params.require(:category).permit(:title)
   end

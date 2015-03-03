@@ -6,8 +6,6 @@ class ProductsController < ApplicationController
   before_action :find_cart, only: :index
   before_action :find_for_prod, except: [:destroy]
 
-  # load_and_authorize_resource
-
   def new
     if user_signed_in?
       @product = Product.new
@@ -32,11 +30,10 @@ class ProductsController < ApplicationController
   end
 
   def update
-    # binding.pry
     if @product.update(product_params)
+      flash[:notice] = "product has been updated"
       render 'show'
     else
-      # binding.pry
       render 'edit'
     end
   end
@@ -45,26 +42,32 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    Product.find(params[:id]).destroy
-    redirect_to '/'
+    if @product.destroy
+      redirect_to '/'
+    else
+      flash[:notice] = "error while deleting"
+    end
   end
 
   def index
-    $counter = index_counter
     @products = Product.all
-    @products = Product.manufacture(params[:manufacture_id]) if params[:manufacture_id].present?
     @user = current_user
   end
 
   def custom_action
     if params[:category]
+      $category_title = Category.find(params[:category])
       @products = Product.category(params[:category])
     elsif params[:manufacture]
+      $manufacture_title = Manufacture.find(params[:manufacture])
       @products = Product.manufacture(params[:manufacture])
     end
+    # binding.pry
     respond_to do |format|
       format.js
     end
+    $manufacture_title = nil
+    $category_title = nil
   end
 
 
@@ -84,7 +87,6 @@ class ProductsController < ApplicationController
   end
 
   def find_cart
-    # binding.pry
     @cart = Cart.find_by(id: session[:cart_id])
   end
 

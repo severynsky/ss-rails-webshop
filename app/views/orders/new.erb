@@ -14,7 +14,7 @@
             <%= prod_rec.quantity %>
           <p></p>
           <p><strong>Price:</strong>
-            <span class="red"><strong><%= prod_rec.product.price %></strong></span></p>
+            <span class="red"><%= prod_rec.product.price %></span></p>
         </div>
         <div class="clear"></div>
         <%= link_to 'remove from order', product_record_path(prod_rec) , method: :delete, class: "pull-right btn btn-danger", data: {confirm: 'are you sure?'}%>

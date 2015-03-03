@@ -20,6 +20,7 @@ gem 'pry'
 gem "paperclip", "~> 4.1.1"
 gem 'haml', '~> 4.0.5'
 gem 'faker'
+gem 'railroady'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

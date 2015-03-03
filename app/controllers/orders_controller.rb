@@ -11,22 +11,25 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(user_id: @user.id)
+    @order = Order.new
     @order.product_records = @cart.product_records
+    current_user.opders << @order
     if @order.save
       redirect_to @order
       @cart.delete
     else
+      # add notice if error
       render 'new'
     end
   end
 
   def show
-    @order = Order.find_by(user_id:(current_user.id))
+    # binding.pry
+    @order = Order.find(params[:id])
   end
 
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.order("created_at DESC")
   end
 
   private

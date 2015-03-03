@@ -1,19 +1,21 @@
-
-%div.col-xs-2.filter-section
-  %h2 Filters
-  %h4
-    Sort by:
-  %h6
-    manufacturer
-    %ul.filter-list.manufacture
-      - @manufactures.each do |m|
-        %li
-          = link_to m.title, custom_action_products_path(manufacture: m.id), remote: true
-  %h6
-    category
-    %ul.filter-list.category
-      - @categories.each do |c|
-        %li
-          = link_to c.title, custom_action_products_path(category: c.id), remote: true
-%div.col-xs-10
-  = render "products/product_block"
+%div.product-list-container
+  %div.col-lg-2.col-xs-10.filter-section
+    %h2
+    %h4
+      Sort by:
+    %div.category.col-xs-6.col-lg-12
+      %h6
+        manufacture
+      %ul.filter-list.manufacture
+        - @manufactures.each do |m|
+          %li
+            = link_to m.title, custom_action_products_path(manufacture: m.id), remote: true
+    %div.category.col-xs-6.col-lg-12
+      %h6
+        category
+      %ul.filter-list
+        - @categories.each do |c|
+          %li
+            = link_to c.title, custom_action_products_path(category: c.id), remote: true
+  %div.col-lg-9.col-xs-10
+    = render "products/product_block"

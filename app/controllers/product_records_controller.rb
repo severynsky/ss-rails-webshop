@@ -13,15 +13,14 @@ class ProductRecordsController < ApplicationController
       @product_record.save
     else
       @cart.product_records.build(product: product).save
+      flash[:notice] = 'Item was added to cart'
     end
 
-    flash[:notice] = 'Item was added to carts'
     respond_to do |format|
       format.html {redirect_to @cart}
       format.js
     end
 
-    session.delete(:counter)
   end
 
   def show
@@ -30,10 +29,13 @@ class ProductRecordsController < ApplicationController
   end
 
   def destroy
-    @product_record.destroy
-    respond_to do |format|
-      format.html {redirect_to '/'}
-      format.js
+    if @product_record.destroy
+      respond_to do |format|
+        format.html {redirect_to '/'}
+        format.js
+      end
+    else
+      flash[:notice] = "Product record wasn`t deleted"
     end
   end
 

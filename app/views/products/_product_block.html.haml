@@ -1,5 +1,15 @@
 %div#product-container
-  %h2 All products
+  %h2
+    - if $manufacture_title
+      showing
+      = $manufacture_title.title
+      products
+    - elsif $category_title
+      showing
+      = $category_title.title
+      products
+    - else
+      All products
   - @products.each do |p|
     %ul{ class: "products-list", id: "product-item-#{ p.id }"}
       %h3
@@ -33,4 +43,4 @@
         %span
           = p.description
       %p
-      = button_to("Add to cart", product_records_path(product_id: p), class: "btn btn-info btn-sm")
+      = button_to("Add to cart", product_records_path(product_id: p), class: "btn btn-info btn-sm" )
