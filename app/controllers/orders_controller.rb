@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new
     @order.product_records = @cart.product_records
-    current_user.opders << @order
+    current_user.orders << @order
     if @order.save
       redirect_to @order
       @cart.delete

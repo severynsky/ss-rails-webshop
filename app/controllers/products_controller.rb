@@ -57,10 +57,10 @@ class ProductsController < ApplicationController
   def custom_action
     if params[:category]
       $category_title = Category.find(params[:category])
-      @products = Product.category(params[:category])
+      @products = Product.category_scope(params[:category])
     elsif params[:manufacture]
       $manufacture_title = Manufacture.find(params[:manufacture])
-      @products = Product.manufacture(params[:manufacture])
+      @products = Product.manufacture_scope(params[:manufacture])
     end
     # binding.pry
     respond_to do |format|

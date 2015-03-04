@@ -21,10 +21,4 @@ describe ProductsController do
     end
   end
 
-  describe "GET #show" do
-    it "assign requested product to @product" do
-
-    end
-  end
-
 end
